@@ -1,0 +1,189 @@
+<main class="signup-screen">
+  <section class="signup-form-panel" aria-labelledby="signup-title">
+    <form class="signup-card" [formGroup]="signupForm" novalidate>
+      <a class="signup-card__brand" routerLink="/" aria-label="EventSales, volver al inicio">
+        <span aria-hidden="true">E</span>
+        EventSales
+      </a>
+
+      <div class="signup-card__heading">
+        <h1 id="signup-title">Crear cuenta</h1>
+        <p>Regístrate como participante y descubre tu próximo evento.</p>
+      </div>
+
+      <div class="form-control">
+        <label for="signup-name">Nombre completo</label>
+        <mat-form-field appearance="outline" class="es-form-field" subscriptSizing="dynamic">
+          <input
+            id="signup-name"
+            matInput
+            type="text"
+            formControlName="fullName"
+            placeholder="Ingresa tu nombre y apellido"
+            autocomplete="name"
+          />
+          @if (signupForm.controls.fullName.hasError('required')) {
+            <mat-error>Ingresa tu nombre completo.</mat-error>
+          } @else if (signupForm.controls.fullName.hasError('minlength')) {
+            <mat-error>El nombre debe tener al menos 3 caracteres.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <label for="signup-email">Correo electrónico</label>
+        <mat-form-field appearance="outline" class="es-form-field" subscriptSizing="dynamic">
+          <input
+            id="signup-email"
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="nombre@correo.com"
+            autocomplete="email"
+          />
+          @if (signupForm.controls.email.hasError('required')) {
+            <mat-error>Ingresa tu correo electrónico.</mat-error>
+          } @else if (signupForm.controls.email.hasError('email')) {
+            <mat-error>Ingresa un correo electrónico válido.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <label for="signup-password">Contraseña</label>
+        <mat-form-field appearance="outline" class="es-form-field" subscriptSizing="dynamic">
+          <input
+            id="signup-password"
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Mínimo 8 caracteres"
+            autocomplete="new-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            class="password-visibility"
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="hidePassword ? 'Mostrar contraseña' : 'Ocultar contraseña'"
+          >
+            <img src="assets/figma/visibility.svg" alt="" />
+          </button>
+          @if (signupForm.controls.password.hasError('required')) {
+            <mat-error>Ingresa una contraseña.</mat-error>
+          } @else if (signupForm.controls.password.hasError('minlength')) {
+            <mat-error>La contraseña debe tener al menos 8 caracteres.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <label for="signup-confirm-password">Confirmar contraseña</label>
+        <mat-form-field appearance="outline" class="es-form-field" subscriptSizing="dynamic">
+          <input
+            id="signup-confirm-password"
+            matInput
+            [type]="hideConfirmation ? 'password' : 'text'"
+            formControlName="confirmPassword"
+            placeholder="Vuelve a escribir tu contraseña"
+            autocomplete="new-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            class="password-visibility"
+            (click)="hideConfirmation = !hideConfirmation"
+            [attr.aria-label]="hideConfirmation ? 'Mostrar confirmación' : 'Ocultar confirmación'"
+          >
+            <img src="assets/figma/visibility.svg" alt="" />
+          </button>
+          @if (signupForm.controls.confirmPassword.hasError('required')) {
+            <mat-error>Confirma tu contraseña.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      @if (
+        signupForm.hasError('passwordsMismatch') &&
+        signupForm.controls.confirmPassword.touched
+      ) {
+        <p class="signup-card__mismatch" role="alert">
+          <img src="assets/figma/error.svg" alt="" />
+          Las contraseñas deben coincidir.
+        </p>
+      }
+
+      <mat-checkbox class="signup-card__terms" formControlName="terms">
+        Acepto los términos y condiciones y la política de privacidad.
+      </mat-checkbox>
+      @if (signupForm.controls.terms.touched && signupForm.controls.terms.invalid) {
+        <p class="signup-card__terms-error" role="alert">
+          Debes aceptar los términos y condiciones.
+        </p>
+      }
+
+      <a
+        mat-flat-button
+        class="es-button es-button--primary signup-card__submit"
+        routerLink="/login"
+        [class.signup-card__submit--disabled]="signupForm.invalid"
+        [attr.aria-disabled]="signupForm.invalid"
+        [tabIndex]="signupForm.invalid ? -1 : 0"
+      >
+        Crear cuenta
+      </a>
+
+      <p class="signup-card__login">
+        ¿Ya tienes una cuenta?
+        <a routerLink="/login">Iniciar sesión</a>
+      </p>
+    </form>
+  </section>
+
+  <section class="signup-benefits" aria-labelledby="signup-benefits-title">
+    <a class="brand brand--on-dark" routerLink="/" aria-label="EventSales, volver al inicio">
+      <span class="brand__mark" aria-hidden="true">E</span>
+      <span>EventSales</span>
+    </a>
+
+    <div class="signup-benefits__copy">
+      <h2 id="signup-benefits-title">Tu próxima experiencia<br />empieza aquí.</h2>
+      <p>Crea tu cuenta y mantén tus entradas siempre a la mano.</p>
+    </div>
+
+    <div class="benefits-list">
+      <div class="benefit">
+        <span aria-hidden="true">✓</span>
+        <div>
+          <strong>Compra sin complicaciones</strong>
+          <p>Un flujo claro desde el evento hasta la confirmación.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <span aria-hidden="true">✓</span>
+        <div>
+          <strong>Entradas en un solo lugar</strong>
+          <p>Consulta tus compras y detalles cuando los necesites.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <span aria-hidden="true">✓</span>
+        <div>
+          <strong>Descubre nuevos eventos</strong>
+          <p>Recomendaciones y categorías para todos los gustos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="community-art" aria-label="Pase de bienvenida a EventSales">
+      <img src="assets/figma/signup-cyan.svg" alt="" />
+      <div class="community-art__pass">
+        <span>BIENVENIDO A EVENTSALES</span>
+        <strong>Descubre. Elige. Vive.</strong>
+        <p>Eventos para recordar.</p>
+      </div>
+    </div>
+  </section>
+</main>

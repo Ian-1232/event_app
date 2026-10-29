@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="stroke0_0_11" fill="white">
+<path d="M14 5C14 7.76142 10.866 10 7 10C3.13401 10 0 7.76142 0 5C0 2.23858 3.13401 0 7 0C10.866 0 14 2.23858 14 5Z"/>
+</mask>
+<path id="Visibility Icon" d="M14 5C14 7.76142 10.866 10 7 10C3.13401 10 0 7.76142 0 5C0 2.23858 3.13401 0 7 0C10.866 0 14 2.23858 14 5Z" stroke-width="3" stroke="#5B6577" mask="url(#stroke0_0_11)"/>
+</svg>

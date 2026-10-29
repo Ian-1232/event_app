@@ -1,0 +1,308 @@
+:host {
+  display: block;
+}
+
+.login-screen {
+  display: grid;
+  min-height: max(100vh, 1024px);
+  grid-template-columns: minmax(480px, 600px) minmax(600px, 1fr);
+  background: var(--bg-base);
+}
+
+.login-brand-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 64px;
+  background: var(--primary-hover);
+  color: var(--text-on-primary);
+}
+
+.login-brand-panel__copy {
+  width: 472px;
+}
+
+.login-brand-panel__copy h1 {
+  margin: 0 0 16px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.login-brand-panel__copy p {
+  width: 440px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.login-ticket-art {
+  position: relative;
+  width: 472px;
+  height: 420px;
+  overflow: hidden;
+  border-radius: var(--radius-16);
+  background: var(--primary-default);
+}
+
+.login-ticket-art__cyan {
+  position: absolute;
+  top: -80px;
+  left: 300px;
+  width: 260px;
+  height: 260px;
+}
+
+.login-ticket-art__pink {
+  position: absolute;
+  top: 320px;
+  left: -48px;
+  width: 170px;
+  height: 170px;
+}
+
+.login-ticket-art__ticket {
+  position: absolute;
+  top: 86px;
+  left: 64px;
+  width: 344px;
+  height: 224px;
+  padding: 32px;
+  transform: rotate(-4deg);
+  border-radius: var(--radius-12);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.login-ticket-art__ticket > span {
+  color: var(--accent-cyan);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.login-ticket-art__ticket strong {
+  display: block;
+  margin: 16px 0 8px;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.login-ticket-art__ticket p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.login-ticket-art__ticket > div {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-ticket-art__code {
+  width: 132px;
+  height: 32px;
+  border-radius: var(--radius-8);
+  background: var(--bg-elevated);
+}
+
+.login-ticket-art__ticket b {
+  color: var(--primary-default);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px;
+}
+
+.login-card {
+  display: flex;
+  width: 496px;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-16);
+  padding: 40px 48px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-subtle);
+}
+
+.login-card__brand {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.login-card__brand > span {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-8);
+  background: var(--primary-default);
+  color: var(--text-on-primary);
+}
+
+.login-card__heading h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.login-card__heading p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-control label {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.password-visibility img {
+  display: block;
+  width: 18px;
+  height: 14px;
+}
+
+.login-card__options {
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.login-card__options a {
+  color: var(--primary-default);
+}
+
+.login-card__options :is(a, .mat-mdc-checkbox):hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.login-card__options .mat-mdc-checkbox {
+  margin-left: -10px;
+  --mdc-checkbox-selected-focus-icon-color: var(--accent-cyan);
+  --mdc-checkbox-selected-hover-icon-color: var(--accent-cyan);
+  --mdc-checkbox-selected-icon-color: var(--accent-cyan);
+  --mdc-checkbox-selected-pressed-icon-color: var(--accent-cyan);
+}
+
+.login-card__options .mat-mdc-checkbox label {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.login-card__submit {
+  width: 100%;
+}
+
+.login-card__submit--disabled {
+  pointer-events: none;
+  background: #9aa3b1 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: none !important;
+}
+
+.login-card__register {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.login-card__register a {
+  margin-left: 8px;
+  color: var(--primary-default);
+}
+
+.login-card__register a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 1040px) {
+  .login-screen {
+    grid-template-columns: minmax(360px, 42%) 1fr;
+  }
+
+  .login-brand-panel {
+    padding: 48px 32px;
+  }
+
+  .login-brand-panel__copy,
+  .login-brand-panel__copy p,
+  .login-ticket-art {
+    width: 100%;
+  }
+
+  .login-ticket-art__ticket {
+    left: 8%;
+    width: 84%;
+  }
+
+  .login-form-panel {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .login-screen {
+    grid-template-columns: 1fr;
+  }
+
+  .login-brand-panel {
+    gap: 32px;
+    padding: 32px 24px;
+  }
+
+  .login-brand-panel__copy h1 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .login-ticket-art {
+    display: none;
+  }
+
+  .login-form-panel {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .login-card {
+    width: 100%;
+    padding: 32px 24px;
+  }
+
+  .login-card__options {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

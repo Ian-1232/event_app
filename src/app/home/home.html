@@ -1,0 +1,124 @@
+<div class="landing-page">
+  <header class="landing-header" aria-label="Navegación principal">
+    <a class="brand" routerLink="/" aria-label="EventSales, inicio">
+      <span class="brand__mark" aria-hidden="true">E</span>
+      <span>EventSales</span>
+    </a>
+
+    <nav class="landing-nav" aria-label="Secciones de la página">
+      <a href="#eventos">Eventos</a>
+      <a href="#como-funciona">Cómo funciona</a>
+    </nav>
+
+    <div class="landing-header__actions">
+      <a mat-stroked-button class="es-button es-button--secondary" routerLink="/login">
+        Iniciar sesión
+      </a>
+      <a mat-flat-button class="es-button es-button--primary" routerLink="/signup">
+        Crear cuenta
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="como-funciona" aria-labelledby="hero-title">
+      <div class="hero__content">
+        <span class="hero__eyebrow">EVENTOS QUE SE VIVEN</span>
+        <h1 id="hero-title">Compra tus entradas</h1>
+        <p>
+          Descubre conciertos, festivales y experiencias únicas. Compra tus entradas
+          de forma rápida, clara y segura.
+        </p>
+        <div class="hero__actions">
+          <a mat-flat-button class="es-button es-button--primary" href="#eventos">
+            Explorar eventos
+          </a>
+          <a mat-stroked-button class="es-button es-button--secondary" href="#como-funciona">
+            Cómo funciona
+          </a>
+        </div>
+      </div>
+
+      <div class="ticket-art" aria-label="Entrada digital de ejemplo para Festival Lima 2026">
+        <img class="ticket-art__cyan" src="assets/figma/landing-cyan.svg" alt="" />
+        <img class="ticket-art__pink" src="assets/figma/landing-pink.svg" alt="" />
+        <div class="ticket-art__ticket">
+          <span>ENTRADA DIGITAL</span>
+          <strong>Festival Lima 2026</strong>
+          <p>Sábado 15 nov · Costa Verde</p>
+          <div class="ticket-art__footer">
+            <span class="ticket-art__code" aria-hidden="true"></span>
+            <b>S/ 89</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured" id="eventos" aria-labelledby="featured-title">
+      <div class="featured__heading">
+        <h2 id="featured-title">Eventos destacados</h2>
+        <a href="#eventos" aria-label="Ver todos los eventos">Ver todos los eventos →</a>
+      </div>
+
+      <div class="category-filters" aria-label="Filtros de categorías">
+        @for (category of categories; track category) {
+          <button type="button" [class.category-filter--active]="category === 'Todos'">
+            {{ category }}
+          </button>
+        }
+      </div>
+
+      <div class="event-grid">
+        @for (event of events; track event.name) {
+          <mat-card class="event-card es-card">
+            <div class="event-card__visual" [class]="'event-card__visual event-card__visual--' + event.visual">
+              <span>{{ event.category }}</span>
+              <img class="event-card__cyan" src="assets/figma/card-cyan.svg" alt="" />
+              <img class="event-card__pink" src="assets/figma/card-pink.svg" alt="" />
+            </div>
+            <mat-card-content class="event-card__content">
+              <div>
+                <h3>{{ event.name }}</h3>
+                <p>{{ event.date }}</p>
+                <p>{{ event.location }}</p>
+              </div>
+              <div class="event-card__action">
+                <strong>{{ event.price }}</strong>
+                <a mat-flat-button class="es-button es-button--primary" routerLink="/login">
+                  Ver entradas
+                </a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing-footer">
+    <div class="landing-footer__main">
+      <div class="landing-footer__brand">
+        <strong>EventSales</strong>
+        <p>Entradas para experiencias que merecen ser recordadas.</p>
+      </div>
+      <div class="landing-footer__links">
+        <div>
+          <strong>Explora</strong>
+          <a href="#eventos">Eventos</a>
+          <a href="#eventos">Categorías</a>
+          <a href="#como-funciona">Preguntas frecuentes</a>
+        </div>
+        <div>
+          <strong>Cuenta</strong>
+          <a routerLink="/login">Iniciar sesión</a>
+          <a routerLink="/signup">Crear cuenta</a>
+          <a href="#como-funciona">Ayuda</a>
+        </div>
+      </div>
+    </div>
+    <div class="landing-footer__bottom">
+      <span>© 2026 EventSales</span>
+      <span>Privacidad · Términos</span>
+    </div>
+  </footer>
+</div>

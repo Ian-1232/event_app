@@ -1,0 +1,318 @@
+:host {
+  display: block;
+}
+
+.signup-screen {
+  display: grid;
+  min-height: max(100vh, 1120px);
+  grid-template-columns: minmax(680px, 840px) minmax(480px, 600px);
+  background: var(--bg-base);
+}
+
+.signup-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px;
+}
+
+.signup-card {
+  display: flex;
+  width: 520px;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-16);
+  padding: 40px 48px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-subtle);
+}
+
+.signup-card__brand {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.signup-card__brand > span {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-8);
+  background: var(--primary-default);
+  color: var(--text-on-primary);
+}
+
+.signup-card__heading h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.signup-card__heading p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-control label {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.password-visibility img {
+  display: block;
+  width: 18px;
+  height: 14px;
+}
+
+.signup-card__mismatch,
+.signup-card__terms-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -8px 0 0;
+  color: var(--state-error);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.signup-card__mismatch img {
+  width: 8px;
+  height: 8px;
+}
+
+.signup-card__terms {
+  margin: -4px 0 -4px -10px;
+  color: var(--text-muted);
+  --mdc-checkbox-selected-focus-icon-color: var(--accent-cyan);
+  --mdc-checkbox-selected-hover-icon-color: var(--accent-cyan);
+  --mdc-checkbox-selected-icon-color: var(--accent-cyan);
+  --mdc-checkbox-selected-pressed-icon-color: var(--accent-cyan);
+}
+
+.signup-card__terms .mdc-label {
+  max-width: 380px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.signup-card__terms-error {
+  margin-top: -16px;
+}
+
+.signup-card__submit {
+  width: 100%;
+}
+
+.signup-card__submit--disabled {
+  pointer-events: none;
+  background: #9aa3b1 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: none !important;
+}
+
+.signup-card__login {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.signup-card__login a {
+  margin-left: 8px;
+  color: var(--primary-default);
+}
+
+.signup-card__login a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.signup-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 64px;
+  background: var(--primary-hover);
+  color: var(--text-on-primary);
+}
+
+.signup-benefits__copy {
+  width: 472px;
+}
+
+.signup-benefits__copy h2 {
+  margin: 0 0 16px;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.signup-benefits__copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.benefits-list {
+  display: flex;
+  width: 472px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit {
+  display: flex;
+  min-height: 72px;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.benefit > span {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--accent-cyan);
+  font-size: 14px;
+}
+
+.benefit strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.benefit p {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.community-art {
+  position: relative;
+  width: 472px;
+  height: 360px;
+  overflow: hidden;
+  border-radius: var(--radius-16);
+  background: var(--primary-default);
+}
+
+.community-art > img {
+  position: absolute;
+  top: -80px;
+  left: 320px;
+  width: 240px;
+  height: 240px;
+}
+
+.community-art__pass {
+  position: absolute;
+  top: 104px;
+  left: 84px;
+  width: 300px;
+  height: 168px;
+  padding: 24px;
+  transform: rotate(4deg);
+  border-radius: var(--radius-12);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.community-art__pass > span {
+  color: var(--accent-cyan);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.community-art__pass strong {
+  display: block;
+  margin: 8px 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.community-art__pass p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 1120px) {
+  .signup-screen {
+    grid-template-columns: 1fr minmax(400px, 42%);
+  }
+
+  .signup-form-panel {
+    padding: 48px 24px;
+  }
+
+  .signup-benefits {
+    padding: 48px 32px;
+  }
+
+  .signup-benefits__copy,
+  .benefits-list,
+  .community-art {
+    width: 100%;
+  }
+
+  .community-art__pass {
+    left: 8%;
+    width: 76%;
+  }
+}
+
+@media (max-width: 840px) {
+  .signup-screen {
+    grid-template-columns: 1fr;
+  }
+
+  .signup-benefits {
+    grid-row: 1;
+    gap: 32px;
+    padding: 32px 24px;
+  }
+
+  .signup-benefits__copy h2 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .benefits-list,
+  .community-art {
+    display: none;
+  }
+
+  .signup-form-panel {
+    padding: 32px 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .signup-card {
+    width: 100%;
+    padding: 32px 24px;
+  }
+}

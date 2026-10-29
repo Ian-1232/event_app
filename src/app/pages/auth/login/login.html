@@ -1,0 +1,113 @@
+<main class="login-screen">
+  <section class="login-brand-panel" aria-labelledby="login-promo-title">
+    <a class="brand brand--on-dark" routerLink="/" aria-label="EventSales, volver al inicio">
+      <span class="brand__mark" aria-hidden="true">E</span>
+      <span>EventSales</span>
+    </a>
+
+    <div class="login-brand-panel__copy">
+      <h1 id="login-promo-title">Tus próximos eventos,<br />en un solo lugar.</h1>
+      <p>
+        Accede a tus entradas, descubre nuevas experiencias y continúa donde lo
+        dejaste.
+      </p>
+    </div>
+
+    <div class="login-ticket-art" aria-label="Entrada de ejemplo para Concierto Aurora">
+      <img class="login-ticket-art__cyan" src="assets/figma/login-cyan.svg" alt="" />
+      <img class="login-ticket-art__pink" src="assets/figma/login-pink.svg" alt="" />
+      <div class="login-ticket-art__ticket">
+        <span>TU ENTRADA</span>
+        <strong>Concierto Aurora</strong>
+        <p>13 nov · Arena 1</p>
+        <div>
+          <span class="login-ticket-art__code" aria-hidden="true"></span>
+          <b>GENERAL</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="login-form-panel" aria-labelledby="login-title">
+    <form class="login-card" [formGroup]="loginForm" novalidate>
+      <a class="login-card__brand" routerLink="/" aria-label="EventSales, volver al inicio">
+        <span aria-hidden="true">E</span>
+        EventSales
+      </a>
+
+      <div class="login-card__heading">
+        <h2 id="login-title">Iniciar sesión</h2>
+        <p>Ingresa tus datos para continuar.</p>
+      </div>
+
+      <div class="form-control">
+        <label for="login-email">Correo electrónico</label>
+        <mat-form-field appearance="outline" class="es-form-field" subscriptSizing="dynamic">
+          <input
+            id="login-email"
+            matInput
+            type="email"
+            formControlName="email"
+            placeholder="nombre@correo.com"
+            autocomplete="email"
+          />
+          @if (loginForm.controls.email.hasError('required')) {
+            <mat-error>Ingresa tu correo electrónico.</mat-error>
+          } @else if (loginForm.controls.email.hasError('email')) {
+            <mat-error>Ingresa un correo electrónico válido.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <label for="login-password">Contraseña</label>
+        <mat-form-field appearance="outline" class="es-form-field" subscriptSizing="dynamic">
+          <input
+            id="login-password"
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="••••••••"
+            autocomplete="current-password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            class="password-visibility"
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="hidePassword ? 'Mostrar contraseña' : 'Ocultar contraseña'"
+          >
+            <img src="assets/figma/visibility.svg" alt="" />
+          </button>
+          @if (loginForm.controls.password.hasError('required')) {
+            <mat-error>Ingresa tu contraseña.</mat-error>
+          } @else if (loginForm.controls.password.hasError('minlength')) {
+            <mat-error>La contraseña debe tener al menos 8 caracteres.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <div class="login-card__options">
+        <mat-checkbox formControlName="remember">Recordarme</mat-checkbox>
+        <a href="#recuperar">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <a
+        mat-flat-button
+        class="es-button es-button--primary login-card__submit"
+        routerLink="/organizador/dashboard"
+        [class.login-card__submit--disabled]="loginForm.invalid"
+        [attr.aria-disabled]="loginForm.invalid"
+        [tabIndex]="loginForm.invalid ? -1 : 0"
+      >
+        Iniciar sesión
+      </a>
+
+      <p class="login-card__register">
+        ¿Aún no tienes cuenta?
+        <a routerLink="/signup">Crear cuenta</a>
+      </p>
+    </form>
+  </section>
+</main>

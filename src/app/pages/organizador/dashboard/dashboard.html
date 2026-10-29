@@ -1,0 +1,146 @@
+<main class="dashboard-shell">
+  <aside class="dashboard-sidebar" aria-label="Navegación del organizador">
+    <div class="dashboard-sidebar__top">
+      <a class="brand brand--on-dark" routerLink="/" aria-label="EventSales, inicio">
+        <span class="brand__mark" aria-hidden="true">E</span>
+        <span>EventSales</span>
+      </a>
+
+      <nav class="organizer-nav">
+        <a class="organizer-nav__item organizer-nav__item--active" routerLink="/organizador/dashboard">
+          <img src="assets/figma/nav-dot.svg" alt="" />
+          Dashboard
+        </a>
+        <a class="organizer-nav__item" routerLink="/organizador/dashboard" fragment="mis-eventos">
+          <img src="assets/figma/nav-dot.svg" alt="" />
+          Mis eventos
+        </a>
+        <a class="organizer-nav__item" routerLink="/organizador/dashboard" fragment="crear-evento">
+          <img src="assets/figma/nav-dot.svg" alt="" />
+          Crear evento
+        </a>
+      </nav>
+    </div>
+
+    <a class="dashboard-sidebar__help" href="#ayuda">Centro de ayuda</a>
+  </aside>
+
+  <div class="dashboard-page">
+    <header class="dashboard-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Resumen de tu actividad como organizador</p>
+      </div>
+      <div class="organizer-profile" aria-label="Perfil de Ian Landauro, organizador">
+        <span aria-hidden="true">IL</span>
+        <div>
+          <strong>Ian Landauro</strong>
+          <small>Organizador</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="dashboard-content" aria-labelledby="summary-title">
+      <div class="summary-heading">
+        <h2 id="summary-title">Resumen general</h2>
+        <a
+          id="crear-evento"
+          mat-flat-button
+          class="es-button es-button--primary"
+          routerLink="/organizador/dashboard"
+        >
+          + Crear evento
+        </a>
+      </div>
+
+      <div class="kpi-grid">
+        @for (indicator of indicators; track indicator.label) {
+          <mat-card class="kpi-card es-card">
+            <mat-card-content>
+              <span>{{ indicator.label }}</span>
+              <strong>{{ indicator.value }}</strong>
+              <small>{{ indicator.change }}</small>
+            </mat-card-content>
+          </mat-card>
+        }
+      </div>
+
+      <div class="analytics-grid">
+        <mat-card class="analytics-card es-card">
+          <mat-card-content>
+            <div class="card-heading">
+              <h2>Ventas recientes</h2>
+              <span>Últimos 30 días</span>
+            </div>
+            <div class="chart-placeholder" role="img" aria-label="Gráfico ilustrativo de ventas recientes">
+              <p>Aquí irá un gráfico</p>
+              <div class="chart-bars" aria-hidden="true">
+                @for (bar of chartBars; track $index) {
+                  <span [style.height.px]="bar"></span>
+                }
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="upcoming-card es-card">
+          <mat-card-content>
+            <h2>Próximos eventos</h2>
+            <div class="upcoming-list">
+              @for (event of upcomingEvents; track event.name) {
+                <div class="upcoming-event">
+                  <div class="upcoming-event__copy">
+                    <span>{{ event.date }}</span>
+                    <strong>{{ event.name }}</strong>
+                  </div>
+                  <mat-chip [class]="'status-chip status-chip--' + event.statusClass">
+                    {{ event.status }}
+                  </mat-chip>
+                </div>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <mat-card class="events-table-card es-card" id="mis-eventos">
+        <mat-card-content>
+          <div class="card-heading">
+            <h2>Mis eventos</h2>
+            <a routerLink="/organizador/dashboard">Ver todos →</a>
+          </div>
+
+          <div class="events-table-wrapper">
+            <table class="events-table">
+              <caption class="screen-reader-only">Listado de eventos del organizador</caption>
+              <thead>
+                <tr>
+                  <th scope="col">EVENTO</th>
+                  <th scope="col">FECHA</th>
+                  <th scope="col">ESTADO</th>
+                  <th scope="col">ACCIONES</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (event of events; track event.name) {
+                  <tr>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>
+                      <span [class]="'table-status table-status--' + event.statusClass">
+                        {{ event.status }}
+                      </span>
+                    </td>
+                    <td>
+                      <a routerLink="/organizador/dashboard">{{ event.action }}</a>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </div>
+</main>
